@@ -1,7 +1,7 @@
 body {
     margin: 10px;
     background: rgb(112,45,189);
-    background: linear-gradient(90deg, rgba(112,45,189,1) 0%, rgba(75,28,186,1) 52%, rgba(23,13,112,1) 100%);
+    background: linear-gradient(90deg, rgba(54,74,188,1) 0%, rgba(75,28,186,1) 52%, rgba(74,0,115,1) 100%);
     color: white;
     font-family: Verdana, sans-serif;
 }
