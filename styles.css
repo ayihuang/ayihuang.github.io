@@ -1,5 +1,17 @@
-body{
-    margin:0;
-    background : pink;
-    text-align : center;
+body {
+    margin: 10;
+    background: rgb(112,45,189);
+    background: linear-gradient(90deg, rgba(112,45,189,1) 0%, rgba(75,28,186,1) 52%, rgba(23,13,112,1) 100%);
+    color: white;
+    font-family: Verdana, sans-serif;
+    /* Default link color */
+    a{
+    color: white; /* Change to your desired color */
+    }
+
+/* Visited link color */
+a:visited {
+    color: navajowhite; /* Change to your desired color */
+}
+
 }
