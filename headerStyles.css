@@ -6,7 +6,7 @@ img{
     font-size: 24px;
     margin-left: 140px; /* Adjust spacing as needed */
 }
-body {
+#header {
     display: flex;
     justify-content: flex-start; /* Align items to the left */
     padding: 0px;
