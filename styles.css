@@ -32,3 +32,56 @@ img {
     color: white;
     font-family: Verdana, sans-serif;
 }
+
+.container{
+    text-align:center;
+    font-size: 60px;
+    transform: translate(-300px,250px)
+}
+.container span{
+    display: block;
+}
+
+#text1 {
+    font-weight: 600;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    position: relative;
+    animation: text1 1.5s 1;
+}
+#text2 {
+    color: #f3e8fa;
+    animation: text2 1.5s 1;
+}
+
+@keyframes text1 {
+    0% {
+        margin-bottom: -70px;
+    }
+
+    70% {
+        letter-spacing: 15px;
+        margin-bottom: -70px;
+    }
+
+    85%{
+        letter-spacing: 8px;
+        margin-bottom: -70px;
+    }
+    100%{
+        margin-bottom: 20px;
+    }
+}
+
+@keyframes text2{
+    0%{
+        font-size: 0px;
+    }
+    75%{
+        font-size:0px;
+    }
+    100%
+    {
+        font-size:60px;
+    }
+}
