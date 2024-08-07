@@ -34,7 +34,7 @@ a:visited {
     font-family: Verdana, sans-serif;
 }
 
-.container{ /*container for main page animation*/
+.container{ /*container for main title page animation*/
     text-align:center;
     font-size: 60px;
     transform: translate(10%,300px)
@@ -67,6 +67,21 @@ a:visited {
     display: flex;
 }
 
+#skatelligenceModel{
+    padding: 300px 0px 0px 30px;
+}
+
+.roundedRectangle {
+    display: flex;
+    gap: 80px;
+}
+.rectangle {
+    border-radius: 25px;
+    background: white;
+    width: 300px;
+    height: 400px;
+    color: black;
+}
 /*animation for text 1, stretch text then back in*/
 @keyframes text1 {
     0% {
