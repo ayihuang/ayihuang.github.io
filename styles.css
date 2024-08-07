@@ -59,6 +59,7 @@ a:visited {
     display: block;
     transform: translate(40%, 100px);
     margin: 0px;
+    animation: titleMedia 3s 1;
 }
 
 /*make title text and media side by side using flex*/
@@ -72,12 +73,12 @@ a:visited {
         margin-bottom: -70px;
     }
 
-    65% {
+    45% {
         letter-spacing: 15px;
         margin-bottom: -70px;
     }
 
-    75%{
+    65%{
         letter-spacing: 8px;
         margin-bottom: -70px;
     }
@@ -92,14 +93,27 @@ a:visited {
     0%{
         font-size: 0px;
     }
-    77%{
+    67%{
         font-size:0px;
     }
-    78%{
+    68%{
         font-size:60px;
     }
     100%
     {
         font-size:60px;
+    }
+}
+
+/*have media appear after text*/
+@keyframes titleMedia{
+    0%{
+        opacity: 0%
+    }
+    70%{
+        opacity: 0%
+    }
+    100%{
+        opacity: 100%
     }
 }
