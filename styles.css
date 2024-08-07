@@ -15,10 +15,11 @@ a{
 a:visited {
     color: navajowhite; /* Change to your desired color */
 }
-img {
+.skatelligenceLogoImg {
     margin: 0px;
 }
 
+/*display navigation horizontally accross top of screen*/
 .nav li {
     display: inline-block;
     font-size: 14px;
@@ -31,4 +32,105 @@ img {
     padding: 0px;
     color: white;
     font-family: Verdana, sans-serif;
+}
+
+.container{ /*container for main title page animation*/
+    text-align:center;
+    font-size: 60px;
+    transform: translate(10%,300px)
+}
+.container span{
+    display: block;
+}
+
+#text1 { 
+    font-weight: 600;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    position: relative;
+    animation: text1 3s 1;
+}
+#text2 {
+    color: #f3e8fa;
+    animation: text2 3s 1;
+}
+/*make container media one on top of the other*/
+.containerMedia {
+    display: block;
+    transform: translate(40%, 100px);
+    margin: 0px;
+    animation: titleMedia 3s 1;
+}
+
+/*make title text and media side by side using flex*/
+.flex-container{
+    display: flex;
+}
+
+#skatelligenceModel{
+    padding: 300px 0px 0px 30px;
+}
+
+/*rounded rectangles to show off features and overview of how it works*/
+.roundedRectangle {
+    padding: 0px 0px 0px 60px;
+    display: flex;
+    gap: 50px; /* gap between each rectangle*/
+}
+.rectangle { /* rounded rectangle*/
+    border-radius: 25px;
+    background: #ebf0f2;
+    width: 300px;
+    height: 400px;
+    color: black;
+}
+/*animation for text 1, stretch text then back in*/
+@keyframes text1 {
+    0% {
+        margin-bottom: -70px;
+    }
+
+    45% {
+        letter-spacing: 15px;
+        margin-bottom: -70px;
+    }
+
+    65%{
+        letter-spacing: 8px;
+        margin-bottom: -70px;
+    }
+    100%{
+        margin-bottom: 20px;
+    }
+}
+
+
+/*animation for text 2 come out from text 1*/
+@keyframes text2{
+    0%{
+        font-size: 0px;
+    }
+    67%{
+        font-size:0px;
+    }
+    68%{
+        font-size:60px;
+    }
+    100%
+    {
+        font-size:60px;
+    }
+}
+
+/*have media appear after text*/
+@keyframes titleMedia{
+    0%{
+        opacity: 0%
+    }
+    70%{
+        opacity: 0%
+    }
+    100%{
+        opacity: 100%
+    }
 }
