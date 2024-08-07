@@ -26,12 +26,16 @@ a:visited {
     margin-left: 180px; /* Adjust spacing as needed */
 }
 
-#header {
+.navigation {
     display: flex;
     justify-content: flex-start; /* Align items to the left */
     padding: 0px;
     color: white;
     font-family: Verdana, sans-serif;
+}
+
+#footer{
+    padding-top: 200px;
 }
 
 .container{ /*container for main title page animation*/
