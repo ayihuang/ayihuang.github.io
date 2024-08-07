@@ -3,3 +3,11 @@
     margin: auto;
     padding-bottom: 40px;
 }
+
+#angelaSection{
+    display: flex;
+}
+
+#blockBio{
+    display:block
+}
