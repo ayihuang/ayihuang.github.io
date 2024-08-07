@@ -4,10 +4,15 @@
     padding-bottom: 40px;
 }
 
-#angelaSection{
+.personSection{
     display: flex;
+    flex:1;
+}
+.blockBio{
+    display:block;
+    padding: 0px 20px 0px 10px;      
 }
 
-#blockBio{
-    display:block
+.bios{
+    display: flex;
 }
