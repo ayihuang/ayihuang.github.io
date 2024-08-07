@@ -15,7 +15,7 @@ a{
 a:visited {
     color: navajowhite; /* Change to your desired color */
 }
-img {
+.skatelligenceLogoImg {
     margin: 0px;
 }
 
@@ -37,7 +37,7 @@ img {
 .container{ /*container for main page animation*/
     text-align:center;
     font-size: 60px;
-    transform: translate(-20%,300px)
+    transform: translate(10%,300px)
 }
 .container span{
     display: block;
@@ -53,6 +53,17 @@ img {
 #text2 {
     color: #f3e8fa;
     animation: text2 3s 1;
+}
+/*make container media one on top of the other*/
+.containerMedia {
+    display: block;
+    transform: translate(40%, 100px);
+    margin: 0px;
+}
+
+/*make title text and media side by side using flex*/
+.flex-container{
+    display: flex;
 }
 
 /*animation for text 1, stretch text then back in*/
@@ -75,6 +86,7 @@ img {
     }
 }
 
+
 /*animation for text 2 come out from text 1*/
 @keyframes text2{
     0%{
@@ -83,7 +95,7 @@ img {
     77%{
         font-size:0px;
     }
-    77.1%%{
+    78%{
         font-size:60px;
     }
     100%
