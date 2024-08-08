@@ -4,15 +4,39 @@
     padding-bottom: 40px;
 }
 
-.personSection{
+.personSection {
     display: flex;
-    flex:1;
+    flex: 1;
+    background: #f3e8fa;
+    color: black;
 }
 .blockBio{
     display:block;
-    padding: 0px 20px 0px 10px;      
+    padding: 0px 20px 0px 50px;    
 }
 
 .bios{
     display: flex;
 }
+
+.linkedInLogo{
+    padding: 15px 0px 0px 20px;
+}
+
+.sport {
+    transform: translate(30%,20px);
+    opacity: 1;
+    animation: sport 2s 1;
+}
+
+@keyframes sport{
+    0%{
+        opacity: 0;
+        transform:translate(30%);
+    }
+    100%{
+        opacity: 1;
+        transform:translate(30%, 20px);
+    }
+}
+
