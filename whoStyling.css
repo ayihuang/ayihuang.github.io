@@ -17,8 +17,9 @@
     padding: 0px 20px 0px 50px;    
 }
 
-.bios{
+.bios {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .linkedInLogo{
@@ -26,7 +27,7 @@
 }
 
 .paddingContainer{
-    padding-left:600px;
+    padding-left:30%;
 }
 #headshotAH {
     border-radius: 25px;
