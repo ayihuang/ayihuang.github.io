@@ -23,6 +23,10 @@
     padding: 15px 0px 0px 20px;
 }
 
+#sportNM{
+    padding-left: 450px;
+}
+
 .sport {
     transform: translate(30%,20px);
     opacity: 1;
