@@ -10,11 +10,16 @@
     background: #f3e8fa;
     color: black;
     border-radius: 25px;
+    max-width: 940px;
 }
 
 .blockBio{
     display:block;
     padding: 0px 20px 0px 50px;    
+}
+
+.block{
+    display: block;
 }
 
 .bios {
