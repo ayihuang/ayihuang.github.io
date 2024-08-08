@@ -9,7 +9,9 @@
     flex: 1;
     background: #f3e8fa;
     color: black;
+    border-radius: 25px;
 }
+
 .blockBio{
     display:block;
     padding: 0px 20px 0px 50px;    
@@ -23,24 +25,55 @@
     padding: 15px 0px 0px 20px;
 }
 
-#sportNM{
-    padding-left: 450px;
+.paddingContainer{
+    padding-left:600px;
 }
-
+#headshotAH {
+    border-radius: 25px;
+}
+#headshotNM {
+    border-radius: 25px;
+}
 .sport {
     transform: translate(30%,20px);
     opacity: 1;
     animation: sport 2s 1;
+    border-radius: 25px;
 }
 
-@keyframes sport{
-    0%{
+.sport {
+    transform: translate(30%, 20px);
+    opacity: 1;
+    animation: sport 2s 1;
+}
+
+.working {
+    transform: translate(30%,-40px);
+    opacity: 1;
+    animation: working 2s 1;
+    border-radius: 25px;
+}
+
+@keyframes sport {
+    0% {
         opacity: 0;
+        transform: translate(30%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(30%, 20px);
+    }
+}
+
+    @keyframes working {
+        0%{
+        opacity:0;
         transform:translate(30%);
     }
     100%{
         opacity: 1;
-        transform:translate(30%, 20px);
+        transform: translate(30%, -40px);
     }
 }
 
