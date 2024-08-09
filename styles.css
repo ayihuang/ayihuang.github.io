@@ -57,6 +57,7 @@ a:visited {
 }
 #text2 {
     color: #f3e8fa;
+    margin-bottom: 150px;
     animation: text2 3s 1;
 }
 /*make container media one on top of the other*/
@@ -64,6 +65,7 @@ a:visited {
     display: block;
     flex-wrap: wrap;
     margin: 0px;
+    transform: translate(40%,200px);
     animation: titleMedia 3s 1;
 }
 
