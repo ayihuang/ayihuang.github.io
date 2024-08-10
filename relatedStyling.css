@@ -1,9 +1,22 @@
 h1 {
     padding: 50px 0px 50px 10px;
 }
-img{
+.pad{
+    padding-left: 10px;
+}
+#relatedImage{
     display:block;
     margin: auto;
+}
+.icon{
+    margin: 20px 20px 20px 20px;
+}
+.file{
+    margin: 40px 0px 0px 0px;
+    font-size: 24px;
+}
+.flex{
+    display: flex;
 }
 .quickLinks{
     padding-left:7%;
