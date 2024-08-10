@@ -1,0 +1,43 @@
+h1 {
+    padding: 50px 0px 50px 10px;
+}
+img{
+    display:block;
+    margin: auto;
+}
+.quickLinks{
+    padding-left:7%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+}
+.link {
+    border-radius: 25px;
+    background: #f3e8fa;
+    width: 325px;
+    height: 120px;
+    color: black;
+    /*start with rectangles invisible and slightly lower*/  
+    opacity:0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.link.visible { /*once rectangle is set to visible, gradually make opaque and slide up*/
+    opacity: 1;
+    transform: translateY(0);
+}
+.link:nth-child(1).visible {
+    transition-delay: 0s;
+}
+
+.link:nth-child(2).visible {
+    transition-delay: 0.5s;
+}
+
+.link:nth-child(3).visible {
+    transition-delay: 1s;
+}
+
+.link:nth-child(4).visible {
+    transition-delay: 1.5s;
+}
