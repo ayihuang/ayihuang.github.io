@@ -19,7 +19,7 @@ const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
 
 let currentSlide = 0;
-let slideInterval = setInterval(nextSlide, 3000); // Auto-slide every 3 seconds
+let slideInterval = setInterval(nextSlide, 6000); // Auto-slide every 6 seconds
 
 function showSlide(index) {
     slides.forEach((slide, i) => {
@@ -46,12 +46,12 @@ function prevSlide() {
 nextButton.addEventListener('click', () => {
     clearInterval(slideInterval); // Stop auto-slide when manually sliding
     nextSlide();
-    slideInterval = setInterval(nextSlide, 3000); // Restart auto-slide
+    slideInterval = setInterval(nextSlide, 6000); // Restart auto-slide
 });
 
 prevButton.addEventListener('click', () => {
     clearInterval(slideInterval);
     prevSlide();
-    slideInterval = setInterval(nextSlide, 3000);
+    slideInterval = setInterval(nextSlide, 6000);
 });
 
