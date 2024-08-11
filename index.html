@@ -7,15 +7,78 @@
 
 </head>
 <body>
-    <div id="header">
-        <img src="SkatelligenceFullLogoCropped.png" alt="Skatelligence full logo" style="width: 250px; height: 59px">
+    <!--Header navigation and links-->
+    <div class="navigation" id="header">
+        <a href="https://ayihuang.github.io/">
+            <img id="skatelligenceLogoImg" src="SkatelligenceFullLogoCropped.png" alt="Skatelligence full logo" style="width: 250px; height: 59px" />
+        </a>
         <ul class="nav">
-            <li><a href="/whoWeAre.html">Who we Are</a></li>
+            <li><a href="/whoWeAre.html">Who We Are</a></li>
             <li><a href="/Demonstrations.html">Demonstrations</a></li>
             <li><a href="/technDetails.html">Technical Details</a></li>
             <li><a href="/relatedLinks.html">Related Links</a></li>
         </ul>
     </div>
-    <p>Test 123 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+    <div class="flex-container">
+        <!--Large text animation-->
+        <div class="container">
+            <span id="text1">Big text one something</span>
+            <span id="text2"><i>Big text 2</i></span>
+        </div>
+        <!--acccompanying media to title text, animation?-->
+        <div class="containerMedia">
+            <div>
+                <img id="titleMedia" src="placeHolderCat.jpg" alt="place holder black cat on couch" style="width:408px; height:306px" />
+            </div>
+        </div>
+    </div>
+
+    <div class="padder"></div>
+
+    <!--slider section-->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide active">
+                <img src="placeHolderCat.jpg" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="placeHolderCat.jpg" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="placeHolderCat.jpg" alt="Slide 3">
+            </div>
+        </div>
+        <!-- Navigation buttons -->
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+
+    <div class="padder"></div>
+
+    <div id="skatelligenceModel">
+        <h2><i>The Skatelligence Model</i></h2>
+        <div class="roundedRectangle">
+            <div class="rectangle"><p>rect1</p></div>
+            <div class="rectangle"><p>rect2</p></div>
+            <div class="rectangle"><p>rect2</p></div>
+            <div class="rectangle"><p>rect2</p></div>
+            <div class="rectangle"><p>rect2</p></div>
+        </div>
+        <script src="script.js"></script> <!--script for animating rectangles one at a time only once in view-->
+    </div>
+    <!--promo demo-->
+    <!--footer navigation and links-->
+    <div class="navigation" id="footer">
+        <a href="https://ayihuang.github.io/">
+            <img id="skatelligenceLogoImg" src="SkatelligenceFullLogoCropped.png" alt="Skatelligence full logo" style="width: 250px; height: 59px" />
+        </a>
+        <ul class="nav">
+            <li><a href="/whoWeAre.html">Who We Are</a></li>
+            <li><a href="/Demonstrations.html">Demonstrations</a></li>
+            <li><a href="/technDetails.html">Technical Details</a></li>
+            <li><a href="/relatedLinks.html">Related Links</a></li>
+        </ul>
+    </div>
 </body>
-</htmlf>
+</html>
