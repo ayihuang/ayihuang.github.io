@@ -1,8 +1,11 @@
 body {
-    margin: 10px;
     background: #301473;
     color: white;
     font-family: Verdana, sans-serif;
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    height: 100vh;
 }
     /* Default link color */
 a{
@@ -25,6 +28,12 @@ a:visited {
     margin-left: 180px; /* Adjust spacing as needed */
 }
 
+#header {
+    width: 100%;
+    margin: 0;
+    padding: 10px 0; /* Optional padding for content inside header */
+    box-sizing: border-box;
+}
 .navigation {
     display: flex;
     flex-wrap: wrap;
@@ -40,8 +49,8 @@ a:visited {
 
 .container{ /*container for main title page animation*/
     text-align:center;
-    font-size: 60px;
-    transform: translate(10%,300px)
+    font-size: 50px;
+    transform: translate(0%,25vh)
 }
 .container span{
     display: block;
@@ -64,14 +73,30 @@ a:visited {
     display: block;
     flex-wrap: wrap;
     margin: 0px;
-    transform: translate(40%,200px);
+    transform: translate(40%,20vh);
     animation: titleMedia 3s 1;
+    max-width: 900px;
 }
 
 /*make title text and media side by side using flex*/
 .flex-container {
     display: flex;
     flex-wrap: wrap;
+    background-image: url('placeHolderCat.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background image fixed */
+    position: relative;
+    height: 80vh;
+}
+.flex-container::before {
+    content: "";
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.7);
 }
 
 #skatelligenceModel{
@@ -158,11 +183,11 @@ a:visited {
         font-size:0px;
     }
     68%{
-        font-size:60px;
+        font-size:50px;
     }
     100%
     {
-        font-size:60px;
+        font-size:50px;
     }
 }
 
