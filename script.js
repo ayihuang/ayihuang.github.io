@@ -13,3 +13,45 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(rectangle);
     });
 });
+
+const slides = document.querySelectorAll('.slide');
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
+
+let currentSlide = 0;
+let slideInterval = setInterval(nextSlide, 3000); // Auto-slide every 3 seconds
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
+    const offset = -index * 100;
+    document.querySelector('.slider').style.transform = `translateX(${offset}%)`;
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Manual navigation
+nextButton.addEventListener('click', () => {
+    clearInterval(slideInterval); // Stop auto-slide when manually sliding
+    nextSlide();
+    slideInterval = setInterval(nextSlide, 3000); // Restart auto-slide
+});
+
+prevButton.addEventListener('click', () => {
+    clearInterval(slideInterval);
+    prevSlide();
+    slideInterval = setInterval(nextSlide, 3000);
+});
+
