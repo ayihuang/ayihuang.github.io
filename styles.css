@@ -12,12 +12,14 @@ body {
 a{
     color: white; /* Change to your desired color */
     text-decoration: none;
+    
 }
 
 /* Visited link color */
 a:visited {
     color: navajowhite; /* Change to your desired color */
 }
+
 #skatelligenceLogoImg {
     margin: 0px 0px 3px 10px;
 }
@@ -25,8 +27,18 @@ a:visited {
 /*display navigation horizontally accross top of screen*/
 .nav li {
     display: inline-block;
+    align-items: center;
     font-size: 14px;
-    margin-left: 180px; /* Adjust spacing as needed */
+    margin-left: 0px; /* Adjust spacing as needed */   
+}
+
+.nav a{
+    padding: 31px 15px 31px 15px;
+    height:100%;
+}
+
+.nav li :hover{
+    background-color:#1f0f47
 }
 
 #header {
@@ -38,10 +50,11 @@ a:visited {
 .navigation {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
     padding: 0px;
     color: white;
     font-family: Verdana, sans-serif;
+    justify-content: flex-start;
 }
 
 #footer{
