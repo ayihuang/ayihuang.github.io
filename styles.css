@@ -56,7 +56,29 @@ a:visited {
     font-family: Verdana, sans-serif;
     justify-content: flex-start;
 }
+.sidebar{
+    position: fixed;
+    top:0;
+    right:0;
+    height: 100vh;
+    width: 250px;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    background-color: rgba(43, 13, 78, 0.7);
+    box-shadow: -10px 0 10px rgba(0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
 
+.sidebar li{
+    width:100%;
+}
+
+.sidebar a{
+    width:100%;
+}
 #footer{
     padding-top: 200px;
 }
@@ -316,5 +338,25 @@ a:visited {
     .prev, .next {
         padding: 5px;
         font-size: 14px;
+    }
+}
+
+@media (max-width: 845px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menu-button{
+        display: block;
+    }
+}
+@media (max-width: 845px){
+    .sidebar{
+        width: 100%;
+    }
+}
+
+@media (min-width: 845px){
+    .menu-button{
+        display: none;
     }
 }
