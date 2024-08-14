@@ -82,8 +82,21 @@ a:visited {
 .sidebar a{
     width:100%;
 }
-#footer{
-    padding-top: 200px;
+.footer{
+    background-color: #150a30;
+    padding-top: 20px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.footer li{
+    display: block;
+    margin-bottom: 5vh;
+    padding: 0px;
+}
+
+.footNav{
+    font-size: 14px;
 }
 
 .padder{
