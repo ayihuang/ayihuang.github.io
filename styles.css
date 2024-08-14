@@ -12,12 +12,14 @@ body {
 a{
     color: white; /* Change to your desired color */
     text-decoration: none;
+    
 }
 
 /* Visited link color */
 a:visited {
     color: navajowhite; /* Change to your desired color */
 }
+
 #skatelligenceLogoImg {
     margin: 0px 0px 3px 10px;
 }
@@ -25,8 +27,21 @@ a:visited {
 /*display navigation horizontally accross top of screen*/
 .nav li {
     display: inline-block;
+    align-items: center;
     font-size: 14px;
-    margin-left: 180px; /* Adjust spacing as needed */
+    margin-left: 0px; /* Adjust spacing as needed */   
+}
+.sidebar li{
+    margin-bottom: 60px;
+}
+
+.nav a{
+    padding: 31px 15px 31px 15px;
+    height:100%;
+}
+
+.nav li :hover{
+    background-color:#1f0f47
 }
 
 #header {
@@ -38,14 +53,50 @@ a:visited {
 .navigation {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
     padding: 0px;
     color: white;
     font-family: Verdana, sans-serif;
+    justify-content: flex-start;
+}
+.sidebar{
+    position: fixed;
+    top:0;
+    right:0;
+    height: 100vh;
+    width: 250px;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    background-color: rgba(43, 13, 78, 0.7);
+    box-shadow: -10px 0 10px rgba(0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
-#footer{
-    padding-top: 200px;
+.sidebar li{
+    width:100%;
+}
+
+.sidebar a{
+    width:100%;
+}
+.footer{
+    background-color: #150a30;
+    padding-top: 20px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.footer li{
+    display: block;
+    margin-bottom: 5vh;
+    padding: 0px;
+}
+
+.footNav{
+    font-size: 14px;
 }
 
 .padder{
@@ -304,4 +355,29 @@ a:visited {
         padding: 5px;
         font-size: 14px;
     }
+}
+
+@media (max-width: 861px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menu-button{
+        display: block;
+    }
+}
+@media (max-width: 400px){
+    .sidebar{
+        width: 100%;
+    }
+}
+
+@media (min-width: 862px){
+    .menu-button{
+        display: none;
+    }
+}
+
+.menu-button{
+    height: 100%;
+    transform: translateY(-4px);
 }
