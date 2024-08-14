@@ -4,9 +4,25 @@ h1 {
 .pad{
     padding-left: 10px;
 }
-#relatedImage{
-    display:block;
-    margin: auto;
+
+.img-container{
+    display: flex;
+    background-image: url('placeHolderCat.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background image fixed */
+    position: relative;
+    height: 40vh;
+}
+.img-container::before {
+    content: "";
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.4);
+    z-index:1;
 }
 .icon{
     margin: 20px 20px 20px 20px;
