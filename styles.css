@@ -87,7 +87,16 @@ a:visited {
 }
 
 .top-triangle{
-    
+    width:0;
+    height: 0;
+    border-left: 100vw solid transparent;
+    border-bottom: 7vw solid #45288a;
+}
+.bottom-triangle{
+    width:0;
+    height: 0;
+    border-right: 100vw solid transparent;
+    border-top: 7vw solid #45288a;
 }
 .footer{
     background-color: #150a30;
@@ -109,7 +118,7 @@ a:visited {
 }
 
 .padder{
-    height: 12vh;
+    height: 20vh;
 }
 
 .container{ /*container for main title page animation*/
