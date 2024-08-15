@@ -1,7 +1,13 @@
+
+@font-face{
+    font-family: Pass;
+    src:url(Pass_A38.woff2);
+}
 body {
     background: #ffffff;
     color: rgb(0, 0, 0);
-    font-family: Verdana, sans-serif;
+    font-family: Pass, Verdana, sans-serif;
+    letter-spacing: 0px;
     box-sizing: border-box;
     margin:0;
     padding:0;
@@ -17,7 +23,7 @@ a{
 
 /* Visited link color */
 a:visited {
-    color: rgb(39, 4, 44); /* Change to your desired color */
+    color: rgb(222, 194, 226); /* Change to your desired color */
 }
 
 #skatelligenceLogoImg {
@@ -37,6 +43,9 @@ a:visited {
 
 .headNav a{
     color: white;
+}
+.headNav a:visited{
+    color:rgb(38, 5, 43)
 }
 .nav a{
     padding: 27px 15px 27px 15px;
