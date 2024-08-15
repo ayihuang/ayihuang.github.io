@@ -1,6 +1,8 @@
 h1 {
     padding: 50px 0px 50px 10px;
 }
+
+/*adds padding to the left of header texts */
 .pad{
     padding-left: 10px;
 }
@@ -26,6 +28,7 @@ h1 {
 }
 .icon{
     margin: 20px 20px 20px 20px;
+    
 }
 .file{
     margin: 40px 0px 0px 0px;
@@ -34,13 +37,35 @@ h1 {
 .flex{
     display: flex;
 }
-.quickLinks{
-    padding-left:7%;
+.top-triangle{
+    width:0;
+    height: 0;
+    border-left: 100vw solid transparent;
+    border-bottom: 4vw solid #45288a;
+}
+.bottom-triangle{
+    width:0;
+    height: 0;
+    border-right: 100vw solid transparent;
+    border-top: 4vw solid #45288a;
+}
+.skatelligence-repo{
+    margin: 0px;
+    padding: 0px;
+    background-color: #45288a;
+    text-align: center;
+}
+.skatelligence-repo h2{
+    margin-top: 0px;
+}
+.quickLinks{ /*parent for all the rectangles with links */
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     gap: 100px;
+
 }
-.link {
+.link { /* rectangle*/
     border-radius: 25px;
     background: #f3e8fa;
     width: 325px;
@@ -60,13 +85,13 @@ h1 {
 }
 
 .link:nth-child(2).visible {
-    transition-delay: 0.5s;
+    transition-delay: 0.3s;
 }
 
 .link:nth-child(3).visible {
-    transition-delay: 1s;
+    transition-delay: 0.6s;
 }
 
 .link:nth-child(4).visible {
-    transition-delay: 1.5s;
+    transition-delay: 0.9s;
 }
