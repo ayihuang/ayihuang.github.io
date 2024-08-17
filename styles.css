@@ -70,6 +70,7 @@ a:visited {
     color: white;
     font-family: Verdana, sans-serif;
     justify-content: flex-start;
+    box-shadow: -5px 0 5px rgba(0, 0, 0.1);
 }
 .sidebar{
     position: fixed;
@@ -229,19 +230,19 @@ a:visited {
     }
 
     .rectangle:nth-child(2).visible {
-        transition-delay: 0.5s;
+        transition-delay: 0.4s;
     }
 
     .rectangle:nth-child(3).visible {
-        transition-delay: 1s;
+        transition-delay: 0.8s;
     }
 
     .rectangle:nth-child(4).visible {
-        transition-delay: 1.5s;
+        transition-delay: 1.2s;
     }
 
     .rectangle:nth-child(5).visible {
-        transition-delay: 2s;
+        transition-delay: 1.6s;
     }
 
     #promoDemo{

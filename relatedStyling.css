@@ -27,15 +27,17 @@ h1 {
     z-index:1;
 }
 .icon{
-    margin: 20px 20px 20px 20px;
+    margin: auto;
     
 }
 .file{
-    margin: 40px 0px 0px 0px;
+    text-align: center;
+    margin: auto;
     font-size: 24px;
 }
 .flex{
     display: flex;
+    transform: translateY(25px);
 }
 .top-triangle{
     width:0;
@@ -90,6 +92,8 @@ h1 {
 
 }
 .link { /* rectangle*/
+    align-items: center;
+    text-align: center;
     border-radius: 25px;
     background: #f3e8fa;
     width: 325px;
