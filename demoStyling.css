@@ -1,0 +1,31 @@
+.pad{ /* move headings a bit to the right*/
+    padding-left: 15px;
+    margin-bottom: 0px;
+}
+h4{
+    color: #150a30;
+    margin-top: 0px;
+}
+.img-container{
+    display: flex;
+    background-image: url('placeHolderCat.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background image fixed */
+    position: relative;
+    height: 40vh;
+}
+.img-container::before {
+    content: "";
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.4);
+    z-index:1;
+}
+.videos{
+    background: rgb(196,233,242);
+    background: linear-gradient(90deg, rgba(196,233,242,1) 0%, rgba(117,190,218,1) 46%, rgba(141,188,244,1) 100%);
+}
