@@ -6,10 +6,18 @@
     margin-bottom: 0px;
     text-align: center;
 }
+h1{
+    font-size: 60px;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 15px;
+    color: white; /* will modify*/
+}
 h4{
-    color: #150a30;
+    color: #c7c4cf;
     margin-top: 0px;
     padding-bottom: 20px;
+    font-size: 20px;
 }
 p{
     padding: 0px 10px 10px 10px;
@@ -34,7 +42,16 @@ p{
     z-index:1;
 }
 .head{
-    background-color: #f3e8fa;
+    background-image: url('placeholdercat.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment:fixed;
+}
+.deviceIcon{
+    display: none;
+}
+.head .video-container{
+    margin: auto;
 }
 .videos{ /* container for all videos and captions*/
     background: rgb(196,233,242);
@@ -42,6 +59,7 @@ p{
     display: flex;
     flex-wrap: wrap;
     margin: auto;
+    padding-top: 20px;
 }
 .video-container { /*container for one video*/
     position: relative;
@@ -75,5 +93,18 @@ p{
     }
     p{
         padding-left: 20px;
+    }
+   
+}
+@media (min-width: 1000px){
+    .head{
+        display: flex;
+    }
+    .headText{
+        width: 50%;
+    }
+    .deviceIcon{
+        display: block;
+        margin: auto;
     }
 }
