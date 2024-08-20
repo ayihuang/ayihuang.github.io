@@ -1,3 +1,6 @@
+.body{
+    overflow-x: hidden;
+}
 .pad{ /* move headings a bit to the right*/
     padding-left: 15px;
     margin-bottom: 0px;
@@ -38,9 +41,9 @@ p{
     background: linear-gradient(90deg, rgba(196,233,242,1) 0%, rgba(117,190,218,1) 46%, rgba(141,188,244,1) 100%);
     display: flex;
     flex-wrap: wrap;
+    margin: auto;
 }
 .video-container { /*container for one video*/
-    padding: 10px 10px 5px 10px;
     position: relative;
     width: 100%;
     max-width: 100%;
