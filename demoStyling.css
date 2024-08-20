@@ -42,7 +42,7 @@ p{
     z-index:1;
 }
 .head{
-    background-image: url('placeholdercat.jpg');
+    background-image: url('placeHolderCat.jpg');
     background-size: cover;
     background-position: center;
     background-attachment:fixed;
