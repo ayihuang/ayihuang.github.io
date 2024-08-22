@@ -63,6 +63,7 @@ a:visited {
     margin: 0;
     padding: 10px 0; /* Optional padding for content inside header */
     box-sizing: border-box;
+    background-color: white;
 }
 .navigation {
     display: flex;
@@ -73,6 +74,8 @@ a:visited {
     font-family: Verdana, sans-serif;
     justify-content: flex-start;
     box-shadow: -5px 0 5px rgba(0, 0, 0.1);
+    position: fixed;
+    z-index: 999;
 }
 .sidebar{
     position: fixed;
