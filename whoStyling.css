@@ -18,7 +18,54 @@
     background-color: rgba(0,0,0,0.4);
     z-index:1;
 }
-
-.who-title{
+.title-photo{ /*sport photo with web*/
+    margin: 0;
+    padding: 0;
+}
+.who-title{ /* sport image icon and text beside*/
     display: flex;
+    background-color: rgb(228, 228, 228);
+    padding-right: 10%;
+}
+p{
+    font-size: 20px;
+}
+#who{/* h1 who we are*/
+    padding-left: 15px;;
+} 
+.headshot{ /* individual photo*/
+    display: block;
+    margin: auto;
+}
+.name-link{ /*name with linked in link beside it*/
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+@media (max-width: 1050px){
+    .title-photo{
+        max-width: 375px;
+        max-height: 300px;
+    }
+    .who-title{
+        padding-right: 0%;
+    }
+
+}
+@media(max-width: 860px){
+    .who-title{
+        display: block;
+    }
+    .title-photo{
+        max-width: 300px;
+        max-height: 240px;
+        display: block;
+        margin: auto;
+    }
+    .title-text{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
 }
