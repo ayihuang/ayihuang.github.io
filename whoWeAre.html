@@ -11,7 +11,7 @@
     <div class="navigation" id="header">
         <div class ="sidebar">
             <ul class="nav">
-                <li onclick= hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#D9D9D9"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li onclick= hideSidebar()><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#D9D9D9"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
                 <li><a href="/whoWeAre.html">Who We Are</a></li>
                 <li><a href="/Demonstrations.html">Demonstrations</a></li>
                 <li><a href="/technDetails.html">Technical Details</a></li>
@@ -29,7 +29,7 @@
                 <li ><a href="/relatedLinks.html">Related Links</a></li>
                 </div>
                 <div class="menu-button">
-                <li  onClick= showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+                <li  onClick= showSidebar()><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
                 </div>
             </ul>
         </div>
@@ -57,9 +57,26 @@
         <h1 id="who">Who We Are</h1>
         <img class="headshot" src="headshotAH.png" alt="picture of Angela Huang" style="width: 300px; height: 400px;"/>
         <div class="name-link">
-            <h3>Angela Huang</h3>
+            <h2>Angela Huang</h3>
             <a href="https://www.linkedin.com/in/angela-huang-b54315284/"><img src="linkedIn.png" style="width:20px; height: 20px;"></a>
         </div>
+        <div class="show-banner">
+            <a onclick=showDescription() class="show-icon" href="javascript:void(0);"><svg xmls ="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg></a>
+            <h3>Show More</h3>
+        </div>
+        <div class="hidden">
+            <div class="description">
+                <p>Angela Huang is a first year student at the University of Waterloo for Biomedical Engineering. Angela has competed nationally in Canada for figure skating at the Junior and Novice levels. This September, she'll be on the Waterloo Warriors Varsity Figure Skating Team.</p>
+            </div>
+            <div class="bottom-banner">
+        </div>
+        </div>
+        <script>
+            function showDescription(){
+                const description = document.querySelector('.hidden')
+                description.style.display='block'
+            }
+        </script>
     </div>
     <!--footer navigation and links-->
     <div class="footer">

@@ -29,6 +29,7 @@
 }
 p{
     font-size: 20px;
+    margin: 0;
 }
 #who{/* h1 who we are*/
     padding-left: 15px;;
@@ -36,12 +37,47 @@ p{
 .headshot{ /* individual photo*/
     display: block;
     margin: auto;
+    border: 5px solid #b664cf;
 }
 .name-link{ /*name with linked in link beside it*/
     display: flex;
     align-items: center;
     gap: 20px;
     justify-content: center;
+}
+.show-banner{ /* show more banner with icon and text*/
+    display: flex;
+    align-items: center;
+    background-color: #b664cf;
+    width: 300px;
+    margin: auto;
+}
+.show-icon :hover{
+    cursor: pointer;
+}
+.show-icon{ /* arrow icon*/
+    margin-right: 40px;
+    margin-left: 20px;
+}
+.description{ /*expanded personal description*/
+    width: 300px;
+    margin: auto;
+}
+h3{
+    font-size: 24px;
+    margin: 0;
+}
+.bottom-banner{/*banner at bottom of personal description tab*/
+    background-color: #b664cf;
+    height: 45px;
+    width: 300px;
+    margin: auto;
+}
+.hidden{ /* hidden stuff when description is collapsed*/
+    display: none;
+}
+.description{ /* personal description text*/
+    background-color: #fcefff;
 }
 @media (max-width: 1050px){
     .title-photo{
