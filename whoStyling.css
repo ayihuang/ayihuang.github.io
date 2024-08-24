@@ -52,6 +52,10 @@ p{
     width: 300px;
     margin: auto;
 }
+.expand{ /*wrapper around down arrow icon show more text*/
+    display: flex;
+    align-items: center;
+}
 .show-icon :hover{
     cursor: pointer;
 }
@@ -62,16 +66,12 @@ p{
 .description{ /*expanded personal description*/
     width: 300px;
     margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 h3{
     font-size: 24px;
     margin: 0;
-}
-.bottom-banner{/*banner at bottom of personal description tab*/
-    background-color: #b664cf;
-    height: 45px;
-    width: 300px;
-    margin: auto;
 }
 .hidden{ /* hidden stuff when description is collapsed*/
     display: none;

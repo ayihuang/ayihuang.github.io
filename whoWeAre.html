@@ -55,29 +55,88 @@
             </div>
         </div>
         <h1 id="who">Who We Are</h1>
+        <!-- Angela Section-->
         <img class="headshot" src="headshotAH.png" alt="picture of Angela Huang" style="width: 300px; height: 400px;"/>
         <div class="name-link">
             <h2>Angela Huang</h3>
             <a href="https://www.linkedin.com/in/angela-huang-b54315284/"><img src="linkedIn.png" style="width:20px; height: 20px;"></a>
         </div>
         <div class="show-banner">
-            <a onclick=showDescription() class="show-icon" href="javascript:void(0);"><svg xmls ="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg></a>
-            <h3>Show More</h3>
+            <div class="expand">
+                <a onclick=showDescription() class="show-icon" href="javascript:void(0);"><svg xmls ="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg></a>
+                <h3>Show More</h3>
+            </div>  
         </div>
         <div class="hidden">
             <div class="description">
                 <p>Angela Huang is a first year student at the University of Waterloo for Biomedical Engineering. Angela has competed nationally in Canada for figure skating at the Junior and Novice levels. This September, she'll be on the Waterloo Warriors Varsity Figure Skating Team.</p>
             </div>
-            <div class="bottom-banner">
+            <div class="show-banner">
+                <a onclick=hideDescription() class="show-icon" href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#000000"><path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"/></svg></a>
+                <h3>Show Less</h3> 
+            </div>
         </div>
+        <div class="padder"></div>
+
+        <!--Nathan section-->
+        <img class="headshot" src="headshotNM.JPG" alt="picture of Angela Huang" style="width: 300px; height: 400px;"/>
+        <div class="name-link">
+            <h2>Nathan Martin</h3>
+            <a href="https://www.linkedin.com/in/angela-huang-b54315284/"><img src="linkedIn.png" style="width:20px; height: 20px;"></a>
+        </div>
+        <div class="show-banner">
+            <div class="expand">
+                <a onclick=showDescriptionNM() class="show-icon" href="javascript:void(0);"><svg xmls ="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg></a>
+                <h3>Show More</h3>
+            </div>  
+        </div>
+        <div class="hidden">
+            <div class="description">
+                <p>Nathan Martin is a second year student at the University of Waterloo for Software Engineering. Nathan is a three time Junior Canadian Track Clycling champion, and he has represented Canadian cycling teams internationally various times.</p>
+            </div>
+            <div class="show-banner">
+                <a onclick=hideDescriptionNM() class="show-icon" href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#000000"><path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"/></svg></a>
+                <h3>Show Less</h3> 
+            </div>
         </div>
         <script>
             function showDescription(){
-                const description = document.querySelector('.hidden')
-                description.style.display='block'
+                const description = document.querySelector('.hidden');
+                const expand = document.querySelector('.expand');
+                
+                description.style.display='block';
+                expand.style.visibility = 'hidden';
+            }
+            function hideDescription(){
+                const description = document.querySelector('.hidden');
+                const expand = document.querySelector('.expand');
+
+                description.style.display = 'none';
+                expand.style.visibility='visible';
+            }
+            function showDescriptionNM(){
+                const description = document.querySelectorAll('.hidden'); // select all elements of class hidden
+                const descriptionNM = description[1]; // get second iteration of .hidden class
+                
+                const expand = document.querySelectorAll('.expand'); 
+                const expandNM = expand[1]; // get second iteration of .expand class
+
+                descriptionNM.style.display='block';
+                expandNM.style.visibility='hidden';
+            }
+            function hideDescriptionNM(){
+                const description = document.querySelectorAll('.hidden'); // select all elements of class hidden
+                const descriptionNM = description[1]; // get second iteration of .hidden class
+                
+                const expand = document.querySelectorAll('.expand'); 
+                const expandNM = expand[1]; // get second iteration of .expand class
+
+                descriptionNM.style.display='none';
+                expandNM.style.visibility='visible';
             }
         </script>
     </div>
+    <div class="padder"></div>
     <!--footer navigation and links-->
     <div class="footer">
         <a href="https://ayihuang.github.io/">
