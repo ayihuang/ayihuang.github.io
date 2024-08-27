@@ -82,10 +82,26 @@ p{
     .title-text{
         padding-right: 10%; /* adding padding to the right 10 % of screen width*/
     }
+    .hardware-schematic{ /*includes the hardware text and schematic image*/
+        display: flex;
+    }
+    .img-example{
+        margin-top: 100px;
+    }
 }
-@media(max-width: 800px){ /* if the screen width is under 800px*/
+@media(min-width: 1200px){
+    .hardware-schematic{
+        gap: 13%;
+    }
+}
+@media(min-width: 1400px){
+    .hardware-schematic{
+        gap: 20%;
+    }
+}
+@media(max-width: 600px){ /* if the screen width is under 800px*/
     .img-example{ /* change image size for smaller screen, modify aspect ratio based on image*/
-        max-width: 400px;
-        max-height: 300px;
+        max-width: 320px;
+        max-height: 204px;
     }
 }
