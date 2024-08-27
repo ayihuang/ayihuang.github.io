@@ -82,8 +82,8 @@
                 <li>1x 3D Printed Main Enclosure</li>
                 <li>6x Velcro Straps</li>
                 <li>1x USB-C Battery Bank</li>
-                <li>Miscelanious Wires</li>
-                <li>Miscelanious Screws</li>
+                <li>Miscellaneous Wires</li>
+                <li>Miscellaneous Screws</li>
             </ul>
             <p>The connections can be seen in the following schematic</p>
         </div>
@@ -94,39 +94,46 @@
     </div>
     <!--change of background colour in content-->
     <div class="blue">
-        <h2>Data Collection</h2>
-        <p>
-            The ESP32 is connected using I2C to the I2C Mux, which is connected to the 5 IMUs. Each GY-521 IMU contains
-            an MPU6050 chip which measures the linear acceleration and rotational velocity in all 3 directions
-            (as well as the temperature, but we do not use this information). The ESP32 contains 2 physical cores. The first is
-            dedicated to reading the acceleration and gyroscopic measurements from all
-            5 IMUs 100 times per second, using the following C++ function.
-        </p>
-        <div class="code-block">
-            <pre>
-            <code> <!--was not recognizing arduino class, leave to default-->
-void readMPU6050(int16_t* Ax, int16_t* Ay, int16_t* Az, int16_t* Gx, int16_t* Gy, int16_t* Gz) {
-    Wire.beginTransmission(0x68); // MPU6050 address
-    Wire.write(0x3B);             // Starting register for Accel Readings
-    Wire.endTransmission(false);
-    Wire.requestFrom(0x68, 14, true); // Request 14 registers
+        <div class="text-code">
+            <div>
+                <h2>Data Collection</h2>
+                <p>
+                    The ESP32 is connected using I2C to the I2C Mux, which is connected to the 5 IMUs. Each GY-521 IMU contains
+                    an MPU6050 chip which measures the linear acceleration and rotational velocity in all 3 directions
+                    (as well as the temperature, but we do not use this information). The ESP32 contains 2 physical cores. The first is
+                    dedicated to reading the acceleration and gyroscopic measurements from all
+                    5 IMUs 100 times per second, using the following C++ function.
+                </p>
+            </div>
+            <div class="code-block">
+                <pre>
+                <code> <!--was not recognizing arduino class, leave to default-->
+    void readMPU6050(int16_t* Ax, int16_t* Ay, int16_t* Az, int16_t* Gx, int16_t* Gy, int16_t* Gz) {
+        Wire.beginTransmission(0x68); // MPU6050 address
+        Wire.write(0x3B);             // Starting register for Accel Readings
+        Wire.endTransmission(false);
+        Wire.requestFrom(0x68, 14, true); // Request 14 registers
 
-    *Ax = Wire.read() << 8 | Wire.read();
-    *Ay = Wire.read() << 8 | Wire.read();
-    *Az = Wire.read() << 8 | Wire.read();
-    Wire.read(); Wire.read(); // Skip temperature
-    *Gx = Wire.read() << 8 | Wire.read();
-    *Gy = Wire.read() << 8 | Wire.read();
-    *Gz = Wire.read() << 8 | Wire.read();
-}
-            </code>
-            </pre>
+        *Ax = Wire.read() << 8 | Wire.read();
+        *Ay = Wire.read() << 8 | Wire.read();
+        *Az = Wire.read() << 8 | Wire.read();
+        Wire.read(); Wire.read(); // Skip temperature
+        *Gx = Wire.read() << 8 | Wire.read();
+        *Gy = Wire.read() << 8 | Wire.read();
+        *Gz = Wire.read() << 8 | Wire.read();
+    }
+                </code>
+                </pre>
+            </div>
         </div>
-        <p>
-            The raw values from the registers are stored in a binary file which contains 100 samples from 5 IMUs, each sample containing
-            the 16 bit signed integer values of the x, y, and z directions for both linear acceleration and rotational velocity. These binary
-            files are stored on the Micro SD card connected to the ESP32. The code that performs this is as follows
-        </p>
+        <div class="code-text">
+            <div class="text-description">
+                <p>
+                    The raw values from the registers are stored in a binary file which contains 100 samples from 5 IMUs, each sample containing
+                    the 16 bit signed integer values of the x, y, and z directions for both linear acceleration and rotational velocity. These binary
+                    files are stored on the Micro SD card connected to the ESP32. The code that performs this is as follows
+                </p>
+            </div>
         <div class="code-block">
             <pre>
             <code> <!--was not recognizing arduino class, leave to default-->
@@ -181,6 +188,8 @@ void readData(void * parameter) {
 }
             </code>
         </pre>
+    </div>
+
         </div>
         <p>
             After a file is done being written to, it is uploaded using http to a server running on a computer on the same network as the ESP32.
@@ -256,12 +265,15 @@ void uploadData(void * parameter) {
         </p>
     </div>
     <div>
+        <div class="text-code">
+        <div>
         <h2>Data Processing</h2>
-        <p>
-            Before jumps can be identified in the data, it must first be processed. This involves two steps. 
-            First, the raw data in the binary files are extracted, scaled to the appropariate units (Gs of acceleration and deg/s of rotational velocity),
-            and the 30 individual streams of data are separated (5 sensors * 6 readings/sensor). This is done using the following code:
-        </p>
+            <p>
+                Before jumps can be identified in the data, it must first be processed. This involves two steps. 
+                First, the raw data in the binary files are extracted, scaled to the appropariate units (Gs of acceleration and deg/s of rotational velocity),
+                and the 30 individual streams of data are separated (5 sensors * 6 readings/sensor). This is done using the following code:
+            </p>
+        </div>
         <div class="code-block">
             <pre>
             <code class="language-python"> <!--was not recognizing arduino class, leave to default-->
@@ -279,10 +291,14 @@ def read_file(file_path):
             </code>
             </pre>
         </div>
-        <p>
-            The data is then filtered using a low-pass 6th order Butterworth filter to remove noise from the data. This processed data is stored in
-            the same format as the raw data to be used during the jump identification process. This is achieved with the following code:
-        </p>
+        </div>
+        <div class="code-text">
+        <div>
+            <p class="text-description">
+                The data is then filtered using a low-pass 6th order Butterworth filter to remove noise from the data. This processed data is stored in
+                the same format as the raw data to be used during the jump identification process. This is achieved with the following code:
+            </p>
+        </div>
         <div class="code-block">
             <pre>
             <code class="language-python"> <!--was not recognizing arduino class, leave to default-->
@@ -294,6 +310,7 @@ def apply_low_pass_filter(data, cutoff, fs, order):
     return filtered_data
             </code>
             </pre>
+        </div>
         </div>
     </div>
     <div class="blue">
