@@ -27,6 +27,10 @@ h2{
     padding-left: 15px;
     font-size: 35px;
 }
+h3{
+    font-size: 24px;
+    padding-left: 15px;
+}
 p{
     font-size: 20px;
     padding-left: 15px;
@@ -44,7 +48,31 @@ p{
     max-width: 300px;
     max-height: 225px;
 }
-
+.img-example{ /* image that will have a caption on it, designed for larger screens*/
+    display: block;
+    margin: auto;
+}
+.img-caption{ /* container for image and caption*/
+    text-align: center;
+    font-size: 12px;
+}
+.blue{ /* section of text with blue background, can modify*/
+    background-color: rgb(204, 203, 241);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.code-block{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.rounded-block{ /* block with background colour and rounded*/
+    background-color: rgb(211, 218, 224);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
 @media(min-width: 650px){ /* if the screen size is minimum 700px*/
     .tech-title{ /* title including image and text*/
         display: flex; /* makes the elements within side by side instead*/
@@ -53,5 +81,11 @@ p{
 @media(min-width: 1000px){
     .title-text{
         padding-right: 10%; /* adding padding to the right 10 % of screen width*/
+    }
+}
+@media(max-width: 800px){ /* if the screen width is under 800px*/
+    .img-example{ /* change image size for smaller screen, modify aspect ratio based on image*/
+        max-width: 400px;
+        max-height: 300px;
     }
 }

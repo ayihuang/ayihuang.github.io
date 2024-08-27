@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale+1.0">
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="techStyling.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
     <title>Technical Details</title>
 </head>
 <body>
@@ -43,8 +44,10 @@
                 sidebar.style.display = 'none'
             }
         </script>
+    <!--start of main page-->
     <div class="img-container"></div> 
     <div class="padder"></div>
+    <!--title with image-->
     <div class="tech-title">
         <img class="title-image" src="placeHolderCat.jpg" style="width: 300px; height: 225px;" />
         <div class="title-text">
@@ -52,8 +55,238 @@
             <p>tech details tech is so cool this is an overview of our tech stuff graphs n stuff</p>
         </div>
     </div>
+    <!--content begins-->
     <h2>This is an h2</h2>
-    
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="img-caption">
+        <img class ="img-example" src="placeHolderCat.jpg" style="width: 800px; height: 600px">
+        <p class="cpation">this is a caption for the image</p>
+    </div>
+    <!--change of background colour in content-->
+    <div class="blue">
+        <h2>This is an h2 but the background is blue</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="img-caption">
+        <img class ="img-example" src="placeHolderCat.jpg" style="width: 800px; height: 600px">
+        <p class="cpation">this is a caption for the image</p>
+    </div>
+    </div>
+    <!--python code-->
+    <h2>This is a code block in python</h2>
+    <p>this is a brief explanation for the code</p>
+    <div class="code-block">
+        <pre>
+            <code class="language-python"> <!--pasted code must be untabbed-->
+import os
+import sys
+import glob
+import numpy as np
+from filter_data import filter_file
+from identify_jumps import process_files_and_detect_jumps  # Import the function
+
+# Constants
+ACCEL_SCALE = 16  # +/- 16 g
+GYRO_SCALE = 2000  # +/- 2000 deg/second
+READINGS_PER_FILE = 100
+SENSOR_COUNT = 5
+BASE_DIR = os.path.dirname(__file__)
+DATA_NAME = 'raw_data'
+PROCESSED_NAME = 'processed_data'
+DATA_DIR = os.path.join(BASE_DIR, 'data/live', DATA_NAME)
+PROCESSED_DIR = os.path.join(BASE_DIR, 'data/live', PROCESSED_NAME)
+PLOT_WINDOW = 10  # Number of files to display in the plot
+
+def get_last_processed_file():
+    """
+    Determines the highest file index that has been processed in the PROCESSED_DIR.
+
+    Returns:
+        int: The index of the last processed file, or -1 if no files have been processed.
+    """
+
+    processed_files = glob.glob(os.path.join(PROCESSED_DIR, '*.bin'))
+    if not processed_files:
+        return -1
+    file_numbers = [int(os.path.splitext(os.path.basename(f))[0]) for f in processed_files]
+    return max(file_numbers)
+
+last_processed_file = get_last_processed_file()  # Initialize last processed file number
+
+def read_file(file_path):
+    """
+    Reads and scales data from a binary file according to pre-defined accelerometer and gyroscope scales.
+
+    Args:
+        file_path (str): Path to the binary file containing raw sensor data.
+
+    Returns:
+        ndarray: Scaled data array, or None if the file is empty or not found.
+    """
+
+    # Scale the data and return that array
+    if file_path:
+        data = np.fromfile(file_path, dtype=np.int16)
+        if data.size == 0:
+            print(f"Warning: {file_path} is empty.")
+            return None
+        data = data.reshape((-1, SENSOR_COUNT * 6))
+        scale_vector = np.tile(np.hstack([ACCEL_SCALE]*3 + [GYRO_SCALE]*3), SENSOR_COUNT)
+        scaled_data = (data / 32768.0) * scale_vector
+        return scaled_data
+
+def process_files():
+    """
+    Processes all unprocessed binary data files from the raw data directory by scaling and filtering them,
+    and then detects jumps from the processed data.
+
+    Uses a global variable `last_processed_file` to keep track of the last processed file index.
+    """
+
+    global last_processed_file
+
+    # Find all files in the directory matching the pattern XX.bin
+    files = glob.glob(os.path.join(DATA_DIR, '*.bin'))
+    if not files:
+        print("No files found.")
+        return
+
+    # Find the highest file number that has been recorded
+    file_numbers = [int(os.path.splitext(os.path.basename(f))[0]) for f in files]
+    max_file_number = max(file_numbers)
+
+    # Process files from the last processed file to the highest file number
+    for file_number in range(last_processed_file + 1, max_file_number + 1):
+        print(f'Processing file {file_number}')
+        filter_file(file_number, DATA_DIR, PROCESSED_DIR)
+        last_processed_file = file_number
+
+        # Call identify_jumps on processed files. Do not call on file 0-2 as identify jumps requires three files before it
+        if file_number > 2:
+            process_files_and_detect_jumps(file_number, PROCESSED_DIR)
+
+def get_data_files(data_dir):
+    """
+    Retrieves a list of all data files in the specified directory, sorted by modification time.
+
+    Args:
+        data_dir (str): The directory to search for data files.
+
+    Returns:
+        list: A list of file paths, sorted by the time they were last modified.
+    """
+
+    return sorted(glob.glob(os.path.join(data_dir, '*.bin')), key=os.path.getmtime)
+
+if __name__ == '__main__':
+    if len(sys.argv) > 1 and sys.argv[1] == 'all':
+        recordings = glob.glob(os.path.join(BASE_DIR, 'data/recordings', 'recording_*'))
+        for recording in recordings:
+            DATA_DIR = os.path.join(recording, DATA_NAME)
+            PROCESSED_DIR = os.path.join(recording, PROCESSED_NAME)
+            last_processed_file = get_last_processed_file()  # Update last processed file number based on current directory
+            process_files()
+    else:
+        process_files()
+            </code>
+        </pre>
+    </div>
+    <p>this is some more explanntion for the above code block</p>
+    <div class="rounded-block">
+        <h3>This is an h3 with rounded corners</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <h2>This is some more code but .ino</h2>
+    <p>more brief explanantion stuff</p>
+
+<div class="code-block">
+    <pre>
+        <code> <!--was not recognizing arduino class, leave to default-->
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include "FS.h"
+#include "SD.h"
+#include "SPI.h"
+#include "Wire.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
+// SPI pin numbers
+#define CS   5
+
+// Wifi information
+const char* ssid     = "<Wifi Name>";
+const char* password = "<Wifi Password>";
+const char* serverName = "http://<IP Address>:5000/postdata";
+
+const int TCA_ADDR = 0x70; // I2C mux adress
+const int POLL_FREQUENCY_HZ = 100; // Frequency of IMU polling
+const int POLL_INTERVAL_MS = 1000 / POLL_FREQUENCY_HZ;
+const int POLLS_PER_FILE = 100; // Number of IMU measurements per file
+
+int lastCompletedFile = -1; // Last file number that has been written and is ready to upload
+
+void tcaSelect(uint8_t i);
+void setupMPU6050();
+void readMPU6050(int16_t* Ax, int16_t* Ay, int16_t* Az, int16_t* Gx, int16_t* Gy, int16_t* Gz);
+void dataLogger(void * parameter);
+void fileUploader(void * parameter);
+void wipeSDCard();
+void initializeWifi();
+void readData(void * parameter);
+void uploadData(void * parameter);
+
+void setup() {
+    Serial.begin(115200); // Serial communication baud rate
+    Wire.begin(21, 22); // Pins for I2C communication to TCA (SDA, SCL)
+    Wire.setClock(400000); // I2C Clock speed (400 kHz)
+
+    // Initialize SD card
+    while (!SD.begin(CS)) {
+        Serial.println("Card Mount Failed");
+        SPI.end();
+        delay(100);
+        SPI.begin();
+        delay(100);
+    }
+
+    // Wipe the SD card
+    wipeSDCard();
+
+    // Initialize all accelerometers
+    for (int i = 0; i < 5; i++) {
+        tcaSelect(i);
+        setupMPU6050();
+    }
+
+    // Start Wi-Fi connection
+    initializeWifi();
+
+    for (int i = 0; i < 5; i++) {
+        int16_t Ax, Ay, Az, Gx, Gy, Gz;
+        tcaSelect(i);
+        readMPU6050(&Ax, &Ay, &Az, &Gx, &Gy, &Gz);
+        Serial.print("Sensor: ");
+        Serial.print(i);
+        Serial.print(" ");
+        Serial.print(Ax);
+        Serial.print(Ay);
+        Serial.print(Az);
+        Serial.print(Gx);
+        Serial.print(Gy);
+        Serial.println(Gz);
+    }
+        </code>
+    </pre>
+</div>
+<p><b>this is some bolded text</b> and then <i>this is some italicized text</i></p>
+<div class="blue">
+    <h2>Another h2 that's blue</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+    <!--scripts for code syntax highlighting-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <!--footer navigation and links-->
     <div class="footer">
         <a href="https://ayihuang.github.io/">
