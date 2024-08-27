@@ -1,0 +1,57 @@
+.img-container{ /*container for image at the top of the page*/
+    display: flex;
+    background-image: url('placeHolderCat.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background image fixed */
+    position: relative;
+    height: 40vh;
+}
+.img-container::before { /*tints the image*/
+    content: "";
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.4);
+    z-index:1;
+}
+
+h1{
+    font-size: 45px;
+    margin: 0;
+    padding-left: 15px;
+}
+h2{
+    padding-left: 15px;
+    font-size: 35px;
+}
+p{
+    font-size: 20px;
+    padding-left: 15px;
+}
+
+.tech-title{ /* add background color and padding to title image and text*/
+    background-color: rgb(231, 229, 235);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.title-image{ /*image that accompanies the title of the page, design for mobile first then scale up in @media for large screen*/
+    /* centering the image*/
+    display: block;
+    margin: auto;
+    max-width: 300px;
+    max-height: 225px;
+}
+
+@media(min-width: 650px){ /* if the screen size is minimum 700px*/
+    .tech-title{ /* title including image and text*/
+        display: flex; /* makes the elements within side by side instead*/
+    }
+}
+@media(min-width: 1000px){
+    .title-text{
+        padding-right: 10%; /* adding padding to the right 10 % of screen width*/
+    }
+}
