@@ -61,7 +61,7 @@ p{
     padding-top: 15px;
     padding-bottom: 15px;
 }
-.code-block{
+.code-block{ /* blocks with code in them*/
     margin-left: 10px;
     margin-right: 10px;
 }
