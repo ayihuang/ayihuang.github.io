@@ -46,7 +46,7 @@ p{
     display: block;
     margin: auto;
     max-width: 300px;
-    max-height: 225px;
+    max-height: 400px;
 }
 .img-example{ /* image that will have a caption on it, designed for larger screens*/
     display: block;
