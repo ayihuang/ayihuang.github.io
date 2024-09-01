@@ -35,11 +35,17 @@ p{
     font-size: 20px;
     padding-left: 15px;
 }
-#dotted-bottom{
+.flex-images{
+    display: flex;
+    justify-content: center;
+}
+#dotted-bottom{ /*adds dotted line to the bottom of the block*/
     border-bottom: 2px dotted black;
     padding-bottom: 15px;
 }
-
+#last-text-code{ /* last text code block */
+    align-items: center;
+}
 .tech-title{ /* add background color and padding to title image and text*/
     background-color: rgb(231, 229, 235);
     padding-top: 15px;
@@ -76,6 +82,11 @@ p{
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 10px;
+}
+@media(max-width: 1200px){
+    .flex-images{
+        display: block;
+    }
 }
 @media(min-width: 650px){ /* if the screen size is minimum 700px*/
     .tech-title{ /* title including image and text*/
@@ -119,6 +130,9 @@ p{
     }
     .code-text .text-description{
         margin-right: 100px;
+    }
+    .flex-images{
+        gap: 10%;
     }
 }
 @media(max-width: 600px){ /* if the screen width is under 800px*/

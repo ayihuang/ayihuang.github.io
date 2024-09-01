@@ -104,13 +104,15 @@
             <p class="cpation">Electrical Schematic</p>
         </div>
     </div>
-    <div class="img-caption">
-        <img class="img-example" src="Skatelligence_Main_Lid_Off.jpg" style="width: 600px; height: 511px">
-        <p class="cpation">Main Module with Lid Removed</p>
-    </div>
-    <div class="img-caption">
-        <img class="img-example" src="Skatelligence_IMU_Lid_Off.jpg" style="width: 600px; height: 511px">
-        <p class="cpation">IMU Module with Lid removed</p>
+    <div class="flex-images">
+        <div class="img-caption">
+            <img class="img-example" src="Skatelligence_Main_Lid_Off.jpg" style="width: 600px; height: 511px">
+            <p class="cpation">Main Module with Lid Removed</p>
+        </div>
+        <div class="img-caption">
+            <img class="img-example" src="Skatelligence_IMU_Lid_Off.jpg" style="width: 600px; height: 511px">
+            <p class="cpation">IMU Module with Lid removed</p>
+        </div>
     </div>
     <!--change of background colour in content-->
     <div class="blue">
@@ -279,11 +281,14 @@ def apply_low_pass_filter(data, cutoff, fs, order):
         </div>
     </div>
     <div class="blue">
-        <h2>Jump Classification</h2>
-        <p>
-            The jump classification is performed using two steps. First all jumps are identified, then the jumps are passed into an AI model to be classified.
-            In order to detect jumps, we have determined that a sequence of IMU readings contains a jump if and only if it meets the following criteria:
-        </p>
+        <div class="text-code">
+            <div>
+                <h2>Jump Classification</h2>
+                <p>
+                    The jump classification is performed using two steps. First all jumps are identified, then the jumps are passed into an AI model to be classified.
+                    In order to detect jumps, we have determined that a sequence of IMU readings contains a jump if and only if it meets the following criteria:
+                </p>
+            
         <ul>
             <li>Takeoff phase (Torso IMU sees vertical acceleration of at least 1.5Gs)</li>
             <li>Air phase (Torso IMU sees vertical acceleration of less than 0.5Gs, after takeoff phase)</li>
@@ -297,6 +302,7 @@ def apply_low_pass_filter(data, cutoff, fs, order):
             If a jump has been identified, the 150 readings are extracted and stored in a 9KB binary file. Using this method, we were able to obtain a jump
             identifcation accuracy of essentially 100%. A simplified implementation of this algorithm can be seen here (For the complete script refer to the GitHub):
         </p>
+        </div>
         <div class="code-block">
             <pre>
             <code class="language-python"> <!--was not recognizing arduino class, leave to default-->
@@ -340,6 +346,7 @@ def detect_jumps(x_accel_data, start_time_offset):
         return jumps
             </code>
             </pre>
+            </div>
         </div>
         <p>
             For our initial prototype of the Skatelligence V0, we mounted the device on a skater to collect data during the
@@ -348,6 +355,8 @@ def detect_jumps(x_accel_data, start_time_offset):
             Moving forward, expanding the dataset to include multiple skaters and more complex jumps with additional rotations is
             planned to improve model robustness and generalizability.
         </p>
+        <div class="code-text">
+            <div>
         <p>
             We settled on using a Recurrent Neural Network (RNN), utilizing Long Short-Term Memory (LSTM) units, to perform the jump
             classification. This choice was generally made for the following reasons:
@@ -370,9 +379,9 @@ def detect_jumps(x_accel_data, start_time_offset):
             classifies the jump into 1 of 6 categories (Salchow, Toe loop, Loop, Flip, Lutz, Axel).
         </p>
         <p>
-            The model was developed using PyTorch, and the strucutre of it can be seen in the following Python code:
+            The model was developed using PyTorch, and the strucutre of it can be seen in the Python code on the left
         </p>
-        </p>
+        </div>
         <div class="code-block">
             <pre>
             <code class="language-python"> <!--was not recognizing arduino class, leave to default-->
@@ -390,6 +399,8 @@ def forward(self, x):
             </code>
             </pre>
         </div>
+        </div>
+        <div class="text-code" id="last-text-code">
         <p>
             The data set we had collected was split into training and testing data. After training the model on the training data, it was able to 
             achieve a successfull identification on the testing data ~80% of the time. We believe that this number will signficiantly improve, and generalize
@@ -421,7 +432,8 @@ for epoch in range(200):  # Number of epochs
     print(f'Epoch {epoch+1}, Loss: {loss.item()}')
                 </code>
                 </pre>
-            </div>
+            </div>   
+        </div>
     </div>
 
     <!--scripts for code syntax highlighting-->
