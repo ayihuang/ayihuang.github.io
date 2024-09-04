@@ -19,7 +19,7 @@ ul li{
 }
 .img-container{
     display: flex;
-    background-image: url('placeHolderCat.jpg');
+    background-image: url('waves-7111758_1920.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Keeps the background image fixed */
