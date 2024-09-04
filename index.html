@@ -57,20 +57,22 @@
         </div>-->
     </div>
 
-    <div class="padder"></div>
 
     <!--ANGELA HELP ME-->
-    <p>
-        Skatelligence is an AI powered high-performance training tool for figure skaters.
-        Using IMUs mounted to the skater's body, Skatelligence is able to detect and categorize
-        the jumps they perform, and provide valuable insights into their performance.
-    </p>
+    <div class="overview-section">
+        <img id = "overview-image" src="web-4809584_1920.jpg" style="width: 1920;"/>
+        <h2 id="overview">
+            Skatelligence is an AI powered high-performance training tool for figure skaters.
+            Using IMUs mounted to the skater's body, Skatelligence is able to detect and categorize
+            the jumps they perform, and provide valuable insights into their performance.
+        </h2>
+    </div>
     
     <!--slider section-->
     <div class="slider-container">
         <div class="slider">
             <div class="slide active">
-                <img src="placeHolderCat.jpg" alt="Slide 1">
+                <img src="Skatelligence_Full.jpg" alt="Slide 1">
             </div>
             <div class="slide">
                 <img src="placeHolderCat.jpg" alt="Slide 2">
@@ -88,37 +90,37 @@
 
     <div class="top-triangle"></div>
     <div id="skatelligenceModel">
-        <h2><i>The Skatelligence Model</i></h2>
+        <h1><i>The Skatelligence Model</i></h1>
         <div class="roundedRectangle">
             <div class="rectangle">
                 <img src="Skate icon.png" style="width: 100px; height: 100px"/>
-                <h3>
+                <h3 class="model-text">
                     6-axis IMUs mounted to the skaters torso, wrists, and skates collect and transmit live acceleration and gyroscopic
                     data to a local server over wifi.
                 </h3>
             </div>
             <div class="rectangle">
                 <img id="graph-image" src="Graph-image.png" style="width: 250px; height: 200px"/>
-                <h3>
+                <h3 class="model-text" id="graph-text">
                     The server recieves and processes the data, displaying live graphs and identifying where the 
                     skater jumped.
                 </h3>
             </div>
             <div class="rectangle">
                 <img src="Neural network.png" style="width: 100px; height: 100px"/>
-                <h3>
+                <h3 class="model-text">
                     Using this data, we trained a recurrent neural network to be able to classify these jumps
                 </h3>
             </div>
             <div class="rectangle">
                 <img src="Output.png" style="width: 100px; height: 100px"/>
-                <h3>
+                <h3 class="model-text">
                     The neural network classfies new jumps as one of the 6 standard figure skating jumps (Salchow, Toe Loop, Loop, Flip, Lutz, Axel)
                 </h3>
             </div>
             <div class="rectangle">
                 <img src="Graphics copy.png" style="width: 200px; height: 110px"/>
-                <h3>
+                <h3 class="model-text">
                     Future versions of Skatelligence will, be able to identify the number of rotations
                     of a jump, generalize well to all skaters, and extract other useful data for training purposes
                 </h3>
