@@ -113,6 +113,7 @@ ul li{
     text-align: center;
     border-radius: 25px;
     background: #f3e8fa;
+    display: block;
     width: 325px;
     height: 120px;
     color: black;
